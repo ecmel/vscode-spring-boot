@@ -51,9 +51,9 @@ function scan(uri: vsc.Uri): void {
     items = [];
 
     let jps = data.split(path.delimiter);
-
+    let zip;
     for (let jp of jps) {
-      let zip = new StreamZip({
+      zip = new StreamZip({
         file: jp,
         storeEntries: true
       });
