@@ -28,9 +28,8 @@ class Server implements vsc.CompletionItemProvider, vsc.HoverProvider {
 }
 
 function parse(data: any): void {
-  let item;
   for (let property of data.properties) {
-    item = new vsc.CompletionItem(property.name);
+    let item = new vsc.CompletionItem(property.name);
     item.detail = property.defaultValue + '  [' + property.type + ']';
     item.documentation = property.description;
     if (property.deprecation) {
@@ -51,9 +50,8 @@ function scan(uri: vsc.Uri): void {
     items = [];
 
     let jps = data.split(path.delimiter);
-    let zip;
     for (let jp of jps) {
-      zip = new StreamZip({
+      let zip = new StreamZip({
         file: jp,
         storeEntries: true
       });
@@ -87,8 +85,11 @@ export function activate(context: vsc.ExtensionContext) {
     fsw.onDidDelete(scan);
     context.subscriptions.push(fsw);
 
-    let server = new Server();
+    context.subscriptions.push(vsc.languages.setLanguageConfiguration('ini', {
+      wordPattern: /(#?-?\d*\.\d\w*%?)|(::?[\w-]*(?=[^,{;]*[,{]))|(([@#.!])?[\w-?]+%?|[@#!.])/g
+    }));
 
+    let server = new Server();
     context.subscriptions.push(vsc.languages.registerCompletionItemProvider(['ini'], server));
     context.subscriptions.push(vsc.languages.registerHoverProvider(['ini'], server));
   }
