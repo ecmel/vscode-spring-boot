@@ -1,9 +1,10 @@
 {
     "name": "vscode-spring-boot",
-    "displayName": "vscode-spring-boot",
-    "description": "Spring Boot",
+    "displayName": "Spring Boot Support",
+    "description": "Spring Boot properties file support",
     "version": "0.0.1",
     "publisher": "ecmel",
+    "icon": "icon.png",
     "engines": {
         "vscode": "^1.0.0"
     },
