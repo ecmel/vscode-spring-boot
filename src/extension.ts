@@ -14,7 +14,17 @@ let items: { [index: string]: vsc.CompletionItem; } = {};
 
 class Server implements vsc.CompletionItemProvider, vsc.HoverProvider {
 
+  private isValue(document: vsc.TextDocument, position: vsc.Position): boolean {
+    let start = new vsc.Position(position.line, 0);
+    let range = new vsc.Range(start, position);
+    let text = document.getText(range);
+    return text.includes('=');
+  }
+
   provideCompletionItems(document: vsc.TextDocument, position: vsc.Position, token: vsc.CancellationToken): vsc.CompletionList {
+    if (this.isValue(document, position)) {
+      return;
+    }
     let ci: vsc.CompletionItem[] = [];
     for (let item in items) {
       ci.push(items[item]);
@@ -27,6 +37,12 @@ class Server implements vsc.CompletionItemProvider, vsc.HoverProvider {
   }
 
   provideHover(document: vsc.TextDocument, position: vsc.Position, token: vsc.CancellationToken): vsc.Hover {
+    let line = document.lineAt(position.line);
+    let pair = line.text.split('=');
+    if (pair.length > 0) {
+      let ci = items[pair[0]];
+      return new vsc.Hover(ci.documentation + '\nDefault: ' + ci.detail);
+    }
     return null;
   }
 }
