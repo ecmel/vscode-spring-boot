@@ -23,7 +23,7 @@ class Server implements vsc.CompletionItemProvider, vsc.HoverProvider {
 
   provideCompletionItems(document: vsc.TextDocument, position: vsc.Position, token: vsc.CancellationToken): vsc.CompletionList {
     if (this.isValue(document, position)) {
-      return;
+      return null;
     }
     let ci: vsc.CompletionItem[] = [];
     for (let item in items) {
@@ -41,7 +41,9 @@ class Server implements vsc.CompletionItemProvider, vsc.HoverProvider {
     let pair = line.text.split('=');
     if (pair.length > 0) {
       let ci = items[pair[0]];
-      return new vsc.Hover(ci.documentation + '\nDefault: ' + ci.detail);
+      if (ci) {
+        return new vsc.Hover(ci.documentation + '\nDefault: ' + ci.detail);
+      }
     }
     return null;
   }
