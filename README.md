@@ -30,3 +30,7 @@ Extension needs to scan the Java class path. You can configure Maven to output t
 	</configuration>
 </plugin>
 ```
+
+## Installation
+
+[Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-spring-boot)
