@@ -8,6 +8,7 @@
   "homepage": "https://github.com/ecmel/vscode-spring-boot",
   "bugs": "https://github.com/ecmel/vscode-spring-boot/issues",
   "icon": "icon.png",
+  "preview": true,
   "engines": {
     "vscode": "^1.0.0"
   },
