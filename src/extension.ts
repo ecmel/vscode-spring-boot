@@ -52,10 +52,8 @@ class Server implements vsc.CompletionItemProvider, vsc.HoverProvider {
 function parse(data: any): void {
   for (let property of data.properties) {
     let item = items[property.name];
-    if (item) {
-      if (item.documentation) {
-        continue;
-      }
+    if (item && item.documentation) {
+      continue;
     }
     item = new vsc.CompletionItem(property.name);
     item.detail = property.defaultValue + '  [' + property.type + ']';
