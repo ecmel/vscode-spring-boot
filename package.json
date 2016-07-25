@@ -2,7 +2,7 @@
   "name": "vscode-spring-boot",
   "displayName": "Spring Boot Support",
   "description": "Spring Boot properties completion",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "ecmel",
   "license": "MIT",
   "homepage": "https://github.com/ecmel/vscode-spring-boot",
