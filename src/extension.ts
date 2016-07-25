@@ -113,7 +113,7 @@ export function activate(context: vsc.ExtensionContext) {
     context.subscriptions.push(fsw);
 
     context.subscriptions.push(vsc.languages.setLanguageConfiguration('ini', {
-      wordPattern: /([^=\s]+)/g
+      wordPattern: /(-?\d*\.\d\w*)|([^\`\~\!\@\#\%\^\&\*\(\)\=\+\[\{\]\}\\\|\;\:\'\"\,\<\>\/\?\s]+)/g
     }));
 
     let server = new Server();
