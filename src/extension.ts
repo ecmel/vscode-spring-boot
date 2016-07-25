@@ -33,7 +33,7 @@ class Server implements vsc.CompletionItemProvider, vsc.HoverProvider {
   }
 
   resolveCompletionItem(item: vsc.CompletionItem, token: vsc.CancellationToken): vsc.CompletionItem {
-    return null;
+    return item;
   }
 
   provideHover(document: vsc.TextDocument, position: vsc.Position, token: vsc.CancellationToken): vsc.Hover {
