@@ -73,6 +73,7 @@ function scan(uri: vsc.Uri): void {
     items = {};
 
     if (err) {
+      console.log(err);
       return;
     }
     let jps = data.split(path.delimiter);
