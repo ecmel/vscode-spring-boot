@@ -94,8 +94,8 @@ function scan(uri: vsc.Uri): void {
           }
         }
       });
-      zip.on('error', function (err) {
-        return;
+      zip.on('error', function (error) {
+        console.log(error);
       });
     }
   });
