@@ -1,4 +1,4 @@
-# vscode-spring-boot
+# Visual Studio Code Spring Boot Support
 
 Spring Boot properties file completion and hover support.
 
