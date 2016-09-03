@@ -8,6 +8,10 @@
   "homepage": "https://github.com/ecmel/vscode-spring-boot",
   "bugs": "https://github.com/ecmel/vscode-spring-boot/issues",
   "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ecmel/vscode-spring-boot.git"
+  },
   "engines": {
     "vscode": "^1.0.0"
   },
