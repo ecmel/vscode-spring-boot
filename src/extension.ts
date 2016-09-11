@@ -18,7 +18,7 @@ class Server implements vsc.CompletionItemProvider, vsc.HoverProvider {
     let start = new vsc.Position(position.line, 0);
     let range = new vsc.Range(start, position);
     let text = document.getText(range);
-    return text.includes('=');
+    return text.includes('=') || text.includes(':');
   }
 
   provideCompletionItems(document: vsc.TextDocument, position: vsc.Position, token: vsc.CancellationToken): vsc.CompletionList {
@@ -38,8 +38,11 @@ class Server implements vsc.CompletionItemProvider, vsc.HoverProvider {
 
   provideHover(document: vsc.TextDocument, position: vsc.Position, token: vsc.CancellationToken): vsc.Hover {
     let line = document.lineAt(position.line);
-    let pair = line.text.split('=');
+    let pair = line.text.split(/[\=\:]/);
     if (pair.length > 0) {
+      if (pair[0].endsWith('.')) {
+        pair[0] = pair[0].slice(0, -1);
+      }      
       let ci = items[pair[0]];
       if (ci) {
         return new vsc.Hover(ci.documentation + '\nDefault: ' + ci.detail);
