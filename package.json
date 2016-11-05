@@ -2,7 +2,7 @@
   "name": "vscode-spring-boot",
   "displayName": "Spring Boot Support",
   "description": "Spring Boot properties completion",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "publisher": "ecmel",
   "license": "MIT",
   "homepage": "https://github.com/ecmel/vscode-spring-boot",
@@ -16,6 +16,7 @@
     "vscode": "^1.5.0"
   },
   "categories": [
+    "Languages",
     "Other"
   ],
   "keywords": [
@@ -25,7 +26,7 @@
     "properties"
   ],
   "activationEvents": [
-    "onLanguage:ini"
+    "onLanguage:properties"
   ],
   "main": "./out/src/extension",
   "scripts": {

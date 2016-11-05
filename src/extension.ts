@@ -116,13 +116,13 @@ export function activate(context: vsc.ExtensionContext) {
     fsw.onDidDelete(scan);
     context.subscriptions.push(fsw);
 
-    context.subscriptions.push(vsc.languages.setLanguageConfiguration('ini', {
+    context.subscriptions.push(vsc.languages.setLanguageConfiguration('properties', {
       wordPattern: /(-?\d*\.\d\w*)|([^\`\~\!\@\#\%\^\&\*\(\)\=\+\[\{\]\}\\\|\;\:\'\"\,\<\>\/\?\s]+)/g
     }));
 
     let server = new Server();
-    context.subscriptions.push(vsc.languages.registerCompletionItemProvider(['ini'], server));
-    context.subscriptions.push(vsc.languages.registerHoverProvider(['ini'], server));
+    context.subscriptions.push(vsc.languages.registerCompletionItemProvider(['properties'], server));
+    context.subscriptions.push(vsc.languages.registerHoverProvider(['properties'], server));
   }
 }
 
