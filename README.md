@@ -1,5 +1,3 @@
-[![Marketplace Version](https://vsmarketplacebadge.apphb.com/version/ecmel.vscode-spring-boot.svg)](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-spring-boot)
-
 # Visual Studio Code Spring Boot Support
 
 Spring Boot properties file completion and hover support.
